@@ -1,43 +1,63 @@
-console.log("hello")
-console.log(5)
-console.log(true, false, 5.10, "Hello")
-// Primitive data types
-// strings
-"hello"
-// numbers
-5
-5.10
-// booleans
-true
-false
-// lack of values
-// null
-// undefine
+const myNumbersArray = [1, 2, 3, 4, 5];
+const myStringsArray = ["Maria", "Mario", "Laura", "Paul"]
+const myBooleanArray = [true, false]
+const myArraysArray = [[1,2], [3,4]]
+const myObjectsArray = [{name: "Maria Blanco", age: 45}, {name: "Paul Piloto", age: 34}]
+const mixedArray = [1, 2, "Hello", true, [1,2]]
 
-const name = "Maria Blanco"
-// name = "Marta Garcia"
-let age = 25;
+// console.log(myNumbersArray)
+// console.log(myNumbersArray[0])
+// console.log(myNumbersArray[5])
+// console.log(myNumbersArray.length)
+// console.log(myNumbersArray[myNumbersArray.length - 1])
+// console.log(myNumbersArray[Math.floor(myNumbersArray.length / 2)])
 
-console.log("Age: ", age)
-age = 34;
-console.log("New Age: ", age)
+// push vs pop
+myNumbersArray.push(6) 
+myNumbersArray.push(8) 
+// console.log(myNumbersArray);
+myNumbersArray.pop();
+// console.log(myNumbersArray);
 
-let address = "Av street 45 123412"
+// unshift vs shift
+myNumbersArray.unshift(10);
+// console.log(myNumbersArray);
 
-// Complex data types
-// arrays
-const arrayNumbers = [1, 2, 3, 4]; // lists of items
-console.log(arrayNumbers);
-console.log(arrayNumbers[3]);
+myNumbersArray.shift();
+// console.log(myNumbersArray);
 
-// objects literals
-const person = {
-    firstName: "Maria",
-    lastName: "Blanco",
-    age: 32,
-    address: "Av street 43 13221"
+// reverse() vs toReversed()
+// myNumbersArray.reverse();
+// console.log(myNumbersArray)
+const myReversedArray = myNumbersArray.toReversed();
+// console.log(myNumbersArray)
+// console.log(myReversedArray)
+
+// splice() vs toSpliced()
+console.log(myStringsArray);
+// myStringsArray.splice(1, 2, "Lucy", "Cesar", "Paul", 5)
+const mySplicedArray = myStringsArray.toSpliced(1, 2, "Lucy", "Cesar", "Paul", 5)
+// console.log(myStringsArray);
+// console.log(mySplicedArray);
+
+// slice
+// console.log(myStringsArray.slice(1, 3))
+// console.log(myStringsArray)
+
+// join
+console.log(myStringsArray.join(" and "))
+
+// loops
+// for loop
+for (let i = 0; i < myNumbersArray.length; i++) {
+  //   console.log(myNumbersArray[i]);
 }
-console.log(person)
-console.log(person["lastName"]);
-console.log(person.firstName);
-// functions
+
+for (let i = 0; i < myStringsArray.length; i++) {
+  //   console.log(`Hello, ${myStringsArray[i]}`);
+}
+
+// for... of
+for(const string of myStringsArray) {
+    console.log(`Hello, ${string}`);
+}
