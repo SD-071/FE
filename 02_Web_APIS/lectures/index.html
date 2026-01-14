@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web APIs</title>
-   
-</head>
-<body>
-    <h1>Adding to the list</h1>
-    <form id="addItemForm">
-        <label for="itemInput">New Item:</label>
-        <input type="text" id="itemInput" name="itemInput">
-        <button type="submit">Add</button>
-    </form>
-    <ul id="myList">
-        <li>Item 1</li>
-    </ul>
-    <ul id="userList"></ul>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="p-2 flex flex-col items-center gap-6">
+    <header>
+      <h1>DOM</h1>
+    </header>
+    <main class="w-full flex flex-col gap-8">
+      <section class="flex flex-col items-center gap-4 rounded-xl bg-neutral-100 shadow p-2" id="form">
+        <form class="flex items-center gap-4" id="addItemForm">
+            <input
+              class="bg-neutral-secondary-medium border rounded text-heading text-xs focus:ring-brand focus:border-brand px-2 py-1 shadow-xs placeholder:text-body"
+              type="text"
+              id="itemInput"
+              name="itemInput"
+              placeholder="new item..."
+            />
+          
+          <button
+            class="w-14 bg-blue-500 hover:bg-blue-700 text-white font-bold text-xs py-1 px-2 rounded"
+            type="submit"
+          >
+            Add
+          </button>
+        </form>
+        <ul class="flex flex-col gap-1 items-center" id="myList">
+        <h2 class="text-lg font-bold">My List</h2>
+        </ul>
+      </section>
+      <section class="flex flex-col items-center gap-4 rounded-xl bg-neutral-100 shadow p-2" id="users">
+        <h2 class="text-lg font-bold">Users</h2>
+        <ul class="flex flex-col gap-4 items-center p-5" id="userList"></ul>
+      </section>
+    </main>
+
+    
     <script src="./src/main.js"></script>
-</body>
+  </body>
 </html>
