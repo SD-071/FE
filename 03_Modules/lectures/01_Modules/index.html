@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./src/pages/about.html">About</a></li>
+          <li><a href="./src/pages/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form id="form">
+        <label for="dataInput">Enter Data:</label>
+        <input type="text" id="dataInput" name="dataInput" required />
+        <button type="submit">Submit</button>
+      </form>
+      <ul id="dataList">
+        <!-- Data items will be dynamically inserted here -->
+      </ul>
+      <ul id="pokemonList">
+        <!-- Pokemon items will be dynamically inserted here -->
+      </ul>
+    </main>
+    <footer>
+      <p>&copy; 2024 Just Modules. All rights reserved.</p>
+    </footer>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

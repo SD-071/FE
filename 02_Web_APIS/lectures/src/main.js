@@ -2,10 +2,11 @@
 const heading = document.querySelector('h1');
 const form = document.querySelector('#addItemForm');
 const list = document.querySelector('#myList');
+const clearListBtn = document.querySelector('#clearList');
 const userList = document.querySelector('#userList');
 
 // Array to display items in a list
-const listItems = ['Singing', 'Running', 'Reading'];
+const listItems = JSON.parse(localStorage.getItem("tasks")) || [];
 listItems.forEach((item) => addLiItem(item));
 
 // Adding styling for the heading
@@ -16,7 +17,8 @@ heading.style.fontSize = '24px';
 // Creating a li element with a delete button
 function addLiItem(value) {
   const li = document.createElement('li');
-  li.className = 'w-50 text-xs flex justify-between items-center bg-stone-200 mb-2 p-2 rounded';
+  li.className = 'li-item w-50 text-xs flex justify-between items-center bg-stone-200 mb-2 p-2 rounded';
+  // li.classList.add("list-item")
 
   const span = document.createElement('span');
   span.textContent = value;
@@ -26,6 +28,7 @@ function addLiItem(value) {
   deleteBtn.className = 'bg-red-900 text-white px-2 py-1 rounded hover:bg-red-700';
   deleteBtn.addEventListener('click', (e) => {
     li.remove();
+    localStorage.setItem("tasks", JSON.stringify(listItems.filter((item) => item !== value)))
   });
 
   li.classList.add('listItem');
@@ -38,8 +41,19 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   const input = document.querySelector('#itemInput').value.trim();
   addLiItem(input);
+  listItems.push(input);
+  localStorage.setItem('tasks', JSON.stringify(listItems));
   form.reset();
 });
+
+// Clear the list
+clearListBtn.addEventListener("click", () => {
+  localStorage.removeItem("tasks")
+  const liItems = document.querySelectorAll('.li-item');
+  liItems.forEach((item) => {
+    item.remove()
+  })
+})
 
 // Creating a card element
 const cardUser = (user) => {
@@ -102,3 +116,34 @@ window.addEventListener('load', async () => {
   console.log(users);
   users.map((user) => cardUser(user));
 });
+
+
+// localStorage methods
+const people = [
+  { id: 1, name: 'Paul', age: 34 },
+  { id: 2, name: 'Paula', age: 44 },
+  { id: 3, name: 'Paulette', age: 34 },
+];
+localStorage.setItem("task", "Running")
+localStorage.setItem("age", JSON.stringify(22))
+localStorage.setItem('people', JSON.stringify(people));
+localStorage.setItem("person", JSON.stringify({name: "Paul", age: 25}))
+
+// console.log(localStorage.getItem("age"));
+// console.log(JSON.parse(localStorage.getItem("age")))
+
+const localPeople = JSON.parse(localStorage.getItem('people'));
+// console.log(localPeople);
+
+const newPeople = localPeople.filter((person) => person.id !== 1);
+// console.log(newPeople);
+
+localStorage.setItem("people", JSON.stringify(newPeople))
+
+localStorage.removeItem("age");
+localStorage.removeItem("person");
+localStorage.removeItem("task");
+
+
+
+
