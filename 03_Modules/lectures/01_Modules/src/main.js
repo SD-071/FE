@@ -1,7 +1,8 @@
 import { fetchOnePokemon } from './network/pokemonAPI.js';
 import { fetchUsers } from './network/jsonPlaceholderUsers.js';
-// import fetchPokemon from "./network/pokemonAPI.js";
 import { displayPokemonList } from './ui/displayPokemonList.js';
+import createNewsletterMessage from './ui/newletterMessage.js';
+
 
 window.addEventListener('load', async () => {
   // const pokemon = await fetchOnePokemon('https://pokeapi.co/api/v2/pokemon/1/');
@@ -15,8 +16,8 @@ window.addEventListener('load', async () => {
   const user = JSON.parse(localStorage.getItem('user'));
 
   const newsletterTimeout = setTimeout(() => {
-    alert('Subscribe to our newsletter!');
-    console.log('subscribe to our newsletter');
+    // alert('Subscribe to our newsletter!');
+    createNewsletterMessage();
   }, 3000);
 
   if (user.newsletter) {

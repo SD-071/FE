@@ -6,30 +6,30 @@
     <title>Homepage</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="./src/pages/about.html">About</a></li>
-          <li><a href="./src/pages/contact.html">Contact</a></li>
+  <body class="p-4 bg-gray-100 min-h-screen flex flex-col justify-between items-center">
+    <header class="w-full mb-4">
+      <nav class="bg-white p-2 rounded shadow text-xs font-bold text-gray-700">
+        <ul class="flex gap-4 items-center justify-center">
+          <li class="hover:text-gray-900"><a href="index.html">Home</a></li>
+          <li class="hover:text-gray-900"><a href="./src/pages/about.html">About</a></li>
+          <li class="hover:text-gray-900"><a href="./src/pages/contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
-    <main>
-      <form id="form">
+    <main class="flex flex-col items-center gap-4">
+      <form id="form" class="flex flex-wrap gap-2 items-center w-full p-2">
         <label for="dataInput">Enter Data:</label>
-        <input type="text" id="dataInput" name="dataInput" required />
-        <button type="submit">Submit</button>
+        <input class="w-2/3 bg-neutral-secondary-medium shadow-md border border-default-medium rounded-md " type="text" id="dataInput" name="dataInput" required />
+        <button class="text-white bg-blue-500 box-border border border-transparent rounded-md shadow-md hover:bg-blue-600 focus:ring-4 px-2 py-1 text-xs text-white font-bold" type="submit">Submit</button>
       </form>
-      <ul id="dataList">
+      <ul class="flex flex-col gap-2" id="dataList">
         <!-- Data items will be dynamically inserted here -->
       </ul>
-      <ul id="pokemonList">
+      <ul class="flex flex-wrap justify-center gap-2" id="pokemonList">
         <!-- Pokemon items will be dynamically inserted here -->
       </ul>
     </main>
-    <footer>
+    <footer class="w-full text-center text-xs text-gray-500 bg-gray-100 mt-8 pt-3 text-xs border-t">
       <p>&copy; 2024 Just Modules. All rights reserved.</p>
     </footer>
     <script type="module" src="./src/main.js"></script>
