@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@utility app {
+  @apply bg-neutral-200 min-h-screen p-8 grid place-items-center;
+};
+
+@utility counterContainer {
+  @apply bg-white p-6 rounded-lg shadow-md w-80 flex flex-col gap-2;
+};
+
+@utility counter {
+     @apply flex gap-2 items-center
+}
+
+@utility button {
+  @apply bg-lime-700 text-white px-4 py-2 rounded-md hover:bg-lime-600;
+};
+
