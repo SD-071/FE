@@ -1,0 +1,1 @@
+export {getCart, updateCart} from "./localStorage";
