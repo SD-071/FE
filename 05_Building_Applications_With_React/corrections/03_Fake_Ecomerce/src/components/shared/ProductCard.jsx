@@ -12,12 +12,12 @@ function ProductCard({ product }) {
     updateCart(product, 'add');
   };
   return (
-    <div className='card w-3xs bg-gray-300 text-primary'>
-      <figure>
-        <img src={product.image} alt={product.title} width={100} />
+    <div className='card w-3xs flex bg-gray-300 text-primary'>
+      <figure className='overflow-hidden h-40 p-3 w-full'>
+        <img className='object-scale-down w-full h-full' src={product.image} alt={product.title} />
       </figure>
-      <div className='card-body'>
-        <h2 className='card-title'>{product.title}</h2>
+      <div className='card-body flex flex-col justify-between'>
+        <h2 className='card-title text-xs'>{product.title}</h2>
         <div className='flex'>
           <p>
             <strong>Price:</strong> {product.price}$

@@ -26,7 +26,17 @@ const reducer = (state, action) => {
 };
 
 function CartStates({ children }) {
-  const [cartState, cartDispatch] = useReducer(reducer, { cart: getCart() });
+  const [cartState, cartDispatch] = useReducer(reducer, {
+    cart: getCart(),
+    totalAmountProducts: getCart().reduce(
+      (acc, currentValue) => acc + currentValue.qty,
+      0,
+    ),
+    totalPrice: getCart().reduce(
+      (acc, currentValue) => acc + currentValue.totalAmount,
+      0
+    ),
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

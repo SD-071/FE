@@ -2,7 +2,7 @@ import { Button } from '..';
 import { useCart } from '../../contexts';
 import { updateCart } from '../../storage';
 
-function ButtonCounterContainer({ product }) {
+function ButtonCounterContainer({ product, extraStyles = "" }) {
   const { cartDispatch } = useCart();
 
   const removeClick = () => {
@@ -22,9 +22,9 @@ function ButtonCounterContainer({ product }) {
   
   return (
     <div className='flex items-center justify-around'>
-      <Button text='-' onClick={removeClick} />
-      <span>{product.qty}</span>
-      <Button text='+' onClick={increaseClick} />
+      <Button extraStyles={extraStyles} text='-' onClick={removeClick} />
+      <span>{product?.qty ? product.qty : 0}</span>
+      <Button extraStyles={extraStyles} text='+' onClick={increaseClick} />
     </div>
   );
 }

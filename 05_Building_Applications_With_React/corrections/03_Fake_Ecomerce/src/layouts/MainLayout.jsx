@@ -10,7 +10,6 @@ function MainLayout() {
   useEffect(() => {
     fetchProduts(setProducts, setError, setLoading)
   }, [])
-  
   return (
     <div>
       <Navbar />

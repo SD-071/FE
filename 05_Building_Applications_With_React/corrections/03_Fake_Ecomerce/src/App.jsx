@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ProductsStates, CartStates, AuthStates } from './contexts';
 import { MainLayout, CategoriesLayout } from './layouts';
-import { Home, CategoriesProducts } from './pages';
+import { Home, CategoriesProducts, Cart, ProductDetail  } from './pages';
+
 function App() {
   return (
     <Router>
@@ -14,13 +15,13 @@ function App() {
                   <Route index element={<Home />} />
                   <Route path='/categories/:category' element={<CategoriesProducts />} />
                 </Route>
+                <Route path='/cart' element={<Cart />} />
+                <Route path='/product/:id' element={<ProductDetail />} />
               </Route>
             </Routes>
           </AuthStates>
         </CartStates>
       </ProductsStates>
-
-      <Routes>{/* <Route path='/' element={<MainLayout />}></Route> */}</Routes>
     </Router>
   );
 }

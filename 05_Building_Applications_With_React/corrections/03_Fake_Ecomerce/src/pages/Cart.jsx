@@ -1,10 +1,14 @@
+import { CartDisplay, CartSide } from '../components';
 
 function Cart() {
+
   return (
-    <>
-        {/* map over the products inside the cart */}
-    </>
-  )
+    <div className='flex flex-wrap-reverse xs:flex-nowrap md:flex-nowrap gap-1 md:justify-center'>
+      <CartDisplay />
+      <CartSide />
+    </div>
+  );
+   
 }
 
 export default Cart

@@ -1,3 +1,5 @@
+import { CartLink } from ".."
+
 function Navbar() {
   return (
     <nav className='navbar bg-secondary shadow-sm text-white flex justify-between p-4'>
@@ -11,8 +13,8 @@ function Navbar() {
           <li>
             <a href={`/`}>Home</a>
           </li>
-          <li className='dropdown dropdown-end'>
-            cart(0)
+          <li className='dropdown dropdown-end cursor-pointer'>
+            <CartLink />
           </li>
         </ul>
       </div>
