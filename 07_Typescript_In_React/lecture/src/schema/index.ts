@@ -1,0 +1,1 @@
+export {ProductSchema, ProductsArraySchema} from "./products";

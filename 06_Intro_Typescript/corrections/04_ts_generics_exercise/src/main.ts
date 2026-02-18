@@ -12,7 +12,15 @@
 //    const wrappedBool = wrapInArray(true);        // [true]
 //
 //    Hint: Use a generic type parameter <T>
-
+const wrapInArray = <T>(value: T): T[] => {
+  return [value];
+};
+//    const wrappedNumber = wrapInArray(5);         // [5]
+//    console.log(wrappedNumber)
+//    const wrappedString = wrapInArray("hello");   // ["hello"]
+//    console.log(wrappedString)
+//    const wrappedBool = wrapInArray(true);        // [true]
+//    console.log(wrappedBool)
 // ----------------------------------------------------
 // 2. Create a generic function called `firstItem`
 //    It should take an array of any type and return the first element of that array.
@@ -24,8 +32,16 @@
 //    const none = firstItem([]);               // undefined
 //
 //    Hint: return type should be T | undefined
-
-// ----------------------------------------------------
+const firstItem = <T>(arr: T[]): T | undefined => {
+  return arr[0];
+};
+//    const name = firstItem(["Ada", "Grace"]); // "Ada"
+//    console.log(name)
+//    const number = firstItem([10, 20, 30]);    // 10
+//    console.log(number)
+//    const none = firstItem([]);               // undefined
+//    console.log(none)
+// // ----------------------------------------------------
 // 3. Create a generic function called `mergeObjects`
 //    It should take two objects and merge them into a single object.
 //    The resulting object should contain all the keys and values from both.
@@ -38,6 +54,17 @@
 //    // Result: { loggedIn: true, role: "admin" }
 //
 //    Hint: Use <T, U> as generic type parameters and return T & U
+const mergeObjects = <T, U>(a: T, b: U): T & U => {
+  return { ...a, ...b };
+};
+
+// const merged = mergeObjects({ name: 'Ada' }, { age: 36 });
+// console.log(merged);
+// // Result: { name: "Ada", age: 36 }
+
+// const result = mergeObjects({ loggedIn: true }, { role: 'admin' });
+// console.log(result);
+// Result: { loggedIn: true, role: "admin" }
 
 // ----------------------------------------------------
 // 4. Create a type alias called `ApiResponse<T>`
@@ -52,6 +79,17 @@
 //      success: true,
 //      data: { name: "Ada", age: 36 }
 //    };
+
+type ApiResponse<T> = {
+  data: T;
+  success: boolean;
+};
+
+//    const userResponse: ApiResponse<{ name: string; age: number }> = {
+//      success: true,
+//      data: { name: "Ada", age: 36 }
+//    };
+//    console.log(userResponse)
 // ----------------------------------------------------
 // 5. Create a generic function called `pluck`
 //    It should take an object and a key, and return the value at that key.
@@ -66,4 +104,12 @@
 //    const age = pluck(user, "age");   // 36
 //
 //    Hint: Function signature will look something like:
-//    function pluck<T, K extends keyof T>(obj: T, key: K): ????
+function pluck<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+
+// const user = { name: 'Ada', age: 36 };
+// const name = pluck(user, 'name'); // "Ada"
+// console.log(name)
+// const age = pluck(user, 'age'); // 36
+// console.log(age)

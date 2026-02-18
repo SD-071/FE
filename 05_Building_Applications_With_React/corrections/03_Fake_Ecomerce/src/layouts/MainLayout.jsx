@@ -8,7 +8,7 @@ function MainLayout() {
   const {setProducts, setLoading, setError} = useProducts();
 
   useEffect(() => {
-    fetchProduts(setProducts, setError, setLoading)
+    fetchProduts(setProducts, setError, setLoading);
   }, [])
   return (
     <div>

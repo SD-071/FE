@@ -1,6 +1,6 @@
 // TYPESCRIPT FUNCTION CARDIO
 //1
-function multiply(a, b) {
+function multiply(a: number, b: number): number {
   return a * b;
 }
 
@@ -9,7 +9,7 @@ multiply(2, 5); // 10
 multiply('2', true);
 
 //2
-function greet(person) {
+function greet(person: string): string {
   return `Hello ${person}`;
 }
 
@@ -18,13 +18,13 @@ greet('Steve'); //Hello Steve
 greet({ id: 1, name: 'Steve' });
 
 //3
-const user = {
+type User = { firstName: string; lastName: string; email: string };
+
+const user: User = {
   firstName: 'Karl',
   lastName: 'Karlsen',
-  email: 'karl@example.com'
+  email: 'karl@example.com',
 };
-
-type User = any;
 
 function getWelcomeMessage(user: User) {
   return `Welcome, ${user.firstName} ${user.lastName}`;
@@ -35,7 +35,7 @@ getWelcomeMessage(user); // "Welcome, Karl Karlsen"
 getWelcomeMessage({ firstName: 'Alan' });
 
 //4
-function isEven(num: any): any {
+function isEven(num: number): boolean {
   return num % 2 == 0;
 }
 
@@ -46,7 +46,7 @@ isEven('4');
 const result: string = isEven(5);
 
 //5
-function getFirstElementofStringArray(arr) {
+function getFirstElementofStringArray(arr: string[]): string {
   return arr[0];
 }
 
@@ -55,7 +55,7 @@ getFirstElementofStringArray(['a', 'b', 'c', 'd']); //"a"
 getFirstElementofStringArray([1, 2, 3, 4]);
 
 //6
-function sumOfNumbers(number) {
+function sumOfNumbers(number: number[]): number {
   return number.reduce((sum, current) => sum + current, 0);
 }
 
@@ -64,7 +64,9 @@ sumOfNumbers([1, 2, 3, 4]); // 10
 sumOfNumbers(['1', '2', '3']);
 
 //7
-function getProductInfo(product: any) {
+type Product = [string, number];
+
+function getProductInfo(product: Product): string {
   return `Product: ${product[0]}, Price: $${product[1]}`;
 }
 
@@ -75,7 +77,7 @@ getProductInfo([1200, 'Laptop']);
 getProductInfo(['Keyboard']);
 
 //8
-function formatUserInput(input: any) {
+function formatUserInput(input: string | number): string {
   return `User said ${input}`;
 }
 
@@ -85,9 +87,11 @@ formatUserInput(12434); // "User said 1243"
 let output: number = formatUserInput(400);
 
 // 9
-type UserID = any;
+type UserID = number;
 
-function fetchUserData(id: UserID) {
+type ReturnUser = { id: number; name: string };
+
+function fetchUserData(id: UserID): ReturnUser {
   return { id, name: `User ${id}` };
 }
 
@@ -96,7 +100,11 @@ fetchUserData(123); // id: 123, name: "User 123"
 fetchUserData('aa1123b');
 
 // 10
-function getWidth(rectangle) {
+type Rectangle = {
+  base: number;
+  height: number;
+};
+function getWidth(rectangle: Rectangle): number {
   return rectangle.base * rectangle.height;
 }
 getWidth({ base: 2, height: 1 });
@@ -104,9 +112,9 @@ getWidth({ base: 2, height: 1 });
 getWidth({ base: 100, height: 50, pi: 220, e: 120 });
 
 //11
-type Response = any;
+type Response = [number, string];
 
-function handleResponse(response: Response) {
+function handleResponse(response: Response): string {
   return `Status: ${response[0]}, Body: "${response[1]}"`;
 }
 
@@ -118,7 +126,7 @@ handleResponse([500]);
 handleResponse('I am a teapot');
 
 //12
-function logValue(input: any) {
+function logValue(input: string | number | boolean) {
   console.log(input);
 }
 
@@ -130,11 +138,11 @@ logValue(false);
 logValue({ value: 'no' });
 
 //13
-type ApiData = string;
+type ApiData = Promise<string>;
 
-async function fetchData(url: any) {
+async function fetchData(url: string): ApiData {
   return `Data from ${url}`;
 }
 
 // How do we need to change this line to make this work?
-const data: ApiData = fetchData('/api/user');
+fetchData('/api/user').then((data: string )=> console.log(data));
